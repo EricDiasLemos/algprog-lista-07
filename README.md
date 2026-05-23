@@ -1,18 +1,21 @@
-# algprog-lista-07
+# algprog-lista-08
 
-Lista de Exercícios VII — Algoritmos e Programação
+Lista de Exercícios VIII — Algoritmos e Programação
 Centro Universitário UNA — Programação de Soluções Computacionais
 
 ## Exercícios
 
-| Arquivo            | Descrição                                                                 |
-|--------------------|---------------------------------------------------------------------------|
-| `Exercicio1.java`  | Temperaturas médias mensais: calcula a média anual e mostra os meses acima dela. |
-| `Exercicio2.java`  | Questionário sobre um crime e classificação da participação da pessoa.    |
-| `Exercicio3.java`  | Leitura de notas até `-1` e estatísticas (soma, média, contagens, etc.).  |
-| `Exercicio4.java`  | Comissões de vendedores distribuídas em faixas salariais.                 |
+| Arquivo            | Descrição                                                                      |
+|--------------------|--------------------------------------------------------------------------------|
+| `Exercicio1.java`  | Imprime um triângulo onde a linha i contém o número i repetido i vezes.        |
+| `Exercicio2.java`  | Imprime a sequência 1, 1 2, 1 2 3, ... até a n-ésima linha.                    |
+| `Exercicio3.java`  | Função que recebe três argumentos e retorna a soma deles.                      |
+| `Exercicio4.java`  | Função que retorna 'P' para argumento positivo e 'N' para zero ou negativo.    |
+| `Exercicio5.java`  | Função `somaImposto` que altera o custo de um item para incluir o imposto.     |
+| `Exercicio6.java`  | Converte horário da notação de 24h para 12h, com loop de repetição.            |
 
-Todos os exercícios foram implementados em **Java** utilizando **`ArrayList`**.
+Todos os exercícios foram implementados em **Java**, usando funções (métodos)
+conforme solicitado em cada questão.
 
 ## Como compilar e executar
 
