@@ -1,31 +1,82 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
  * Exercício 3
- * Possui uma função que recebe três argumentos e retorna a soma deles.
+ * Lê um número indeterminado de notas (encerrando com -1, que não é
+ * armazenado) e, em seguida, apresenta diversas estatísticas sobre elas.
  */
 public class Exercicio3 {
 
-    // Função que necessita de três argumentos e fornece a soma deles
-    public static double somar(double a, double b, double c) {
-        return a + b + c;
-    }
-
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
+        ArrayList<Double> notas = new ArrayList<>();
 
-        System.out.print("Informe o primeiro valor: ");
-        double v1 = entrada.nextDouble();
+        // Leitura das notas até que -1 seja informado
+        System.out.println("Digite as notas (-1 para encerrar):");
+        double valor;
+        do {
+            System.out.print("Nota: ");
+            valor = entrada.nextDouble();
+            if (valor != -1) {
+                notas.add(valor);
+            }
+        } while (valor != -1);
 
-        System.out.print("Informe o segundo valor: ");
-        double v2 = entrada.nextDouble();
+        // Quantidade de valores lidos
+        System.out.println("\nQuantidade de valores lidos: " + notas.size());
 
-        System.out.print("Informe o terceiro valor: ");
-        double v3 = entrada.nextDouble();
+        // Se nenhuma nota foi informada, encerra o programa
+        if (notas.isEmpty()) {
+            System.out.println("Nenhuma nota foi informada.");
+            System.out.println("\nPrograma encerrado.");
+            entrada.close();
+            return;
+        }
 
-        double resultado = somar(v1, v2, v3);
-        System.out.printf("A soma dos três valores é: %.2f%n", resultado);
+        // Valores na ordem informada (um ao lado do outro)
+        System.out.print("Valores na ordem informada: ");
+        for (double nota : notas) {
+            System.out.print(nota + "  ");
+        }
+        System.out.println();
 
+        // Valores na ordem inversa (um abaixo do outro)
+        System.out.println("Valores na ordem inversa:");
+        for (int i = notas.size() - 1; i >= 0; i--) {
+            System.out.println(notas.get(i));
+        }
+
+        // Soma dos valores
+        double soma = 0;
+        for (double nota : notas) {
+            soma += nota;
+        }
+        System.out.printf("Soma dos valores: %.2f%n", soma);
+
+        // Média dos valores
+        double media = soma / notas.size();
+        System.out.printf("Média dos valores: %.2f%n", media);
+
+        // Quantidade de valores acima da média
+        int acimaMedia = 0;
+        for (double nota : notas) {
+            if (nota > media) {
+                acimaMedia++;
+            }
+        }
+        System.out.println("Quantidade de valores acima da média: " + acimaMedia);
+
+        // Quantidade de valores abaixo de sete
+        int abaixoSete = 0;
+        for (double nota : notas) {
+            if (nota < 7) {
+                abaixoSete++;
+            }
+        }
+        System.out.println("Quantidade de valores abaixo de sete: " + abaixoSete);
+
+        System.out.println("\nPrograma encerrado com sucesso!");
         entrada.close();
     }
 }

@@ -1,34 +1,46 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
  * Exercício 1
- * Imprime, para um n informado pelo usuário:
- *   1
- *   2 2
- *   3 3 3
- *   ...
- *   n n n ... n
- * Cada linha i contém o número i repetido i vezes.
+ * Recebe a temperatura média de cada mês do ano, armazena em uma lista,
+ * calcula a média anual e mostra as temperaturas acima dessa média,
+ * indicando o mês por extenso.
  */
 public class Exercicio1 {
 
-    // Função que recebe um valor n inteiro e imprime até a n-ésima linha
-    public static void imprimirTriangulo(int n) {
-        for (int linha = 1; linha <= n; linha++) {
-            for (int coluna = 1; coluna <= linha; coluna++) {
-                System.out.print(linha + " ");
-            }
-            System.out.println();
-        }
-    }
-
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
+        ArrayList<Double> temperaturas = new ArrayList<>();
 
-        System.out.print("Informe o valor de n: ");
-        int n = entrada.nextInt();
+        String[] meses = {
+            "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+            "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+        };
 
-        imprimirTriangulo(n);
+        // Leitura das 12 temperaturas
+        for (int i = 0; i < 12; i++) {
+            System.out.print("Informe a temperatura média de " + meses[i] + ": ");
+            double temperatura = entrada.nextDouble();
+            temperaturas.add(temperatura);
+        }
+
+        // Cálculo da soma e da média anual
+        double soma = 0;
+        for (double temperatura : temperaturas) {
+            soma += temperatura;
+        }
+        double mediaAnual = soma / temperaturas.size();
+
+        // Exibição dos resultados
+        System.out.printf("%nMédia anual das temperaturas: %.2f%n", mediaAnual);
+        System.out.println("Temperaturas acima da média anual:");
+
+        for (int i = 0; i < temperaturas.size(); i++) {
+            if (temperaturas.get(i) > mediaAnual) {
+                System.out.printf("%s: %.2f%n", meses[i], temperaturas.get(i));
+            }
+        }
 
         entrada.close();
     }
